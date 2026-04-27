@@ -77,8 +77,8 @@ a {
 }
 
 .logo img {
-  height: 24px;
-  width: auto;
+  height: 20px;
+  width: 174px; /* ratio viewBox 207.342 / 23.8852 × 20px */
   display: block;
 }
 

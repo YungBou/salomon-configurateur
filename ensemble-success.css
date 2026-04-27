@@ -40,3 +40,44 @@
   line-height: normal;
   width: 100%;
 }
+
+.ensemble-success-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+}
+
+.ensemble-success-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 32px;
+  border-radius: 9999px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s ease;
+}
+
+.ensemble-success-cta--primary {
+  background: #000;
+  color: #fff;
+  border: none;
+}
+
+.ensemble-success-cta--primary:hover {
+  background: #222;
+}
+
+.ensemble-success-cta--secondary {
+  background: #fff;
+  color: #000;
+  border: 1.5px solid #000;
+}
+
+.ensemble-success-cta--secondary:hover {
+  background: #f5f5f5;
+}
