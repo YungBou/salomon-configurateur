@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Salomon — Création de profil : Sports</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="step1.css" />
+</head>
+<body class="step1-page">
+
+  <!-- PREHEADER -->
+  <div class="preheader">
+    <span>Trouver un magasin</span>
+    <div class="preheader-center">
+      <span>Livraison gratuite pour les membres</span>
+      <a href="#">Détails</a>
+    </div>
+    <div class="preheader-right">
+      <span>S'inscrire à nos communications</span>
+      <a href="#">Aide</a>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-top">
+      <a href="index.html" class="logo">
+        <img src="assets/logo.svg" alt="Salomon" />
+      </a>
+      <div class="search-bar">
+        <img src="assets/icon-search.svg" alt="" class="search-icon" />
+        <span class="search-placeholder">Rechercher un produit, une activité, des chaussures...</span>
+      </div>
+      <div class="header-actions">
+        <button class="btn-account">
+          <span class="icon-user-check">
+            <img src="assets/icon-user.svg" alt="" />
+            <svg class="check-badge" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <polyline points="2,6 5,9 10,3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span>Hugo</span>
+        </button>
+        <button class="btn-icon">
+          <img src="assets/icon-heart.svg" alt="Favoris" />
+        </button>
+        <button class="btn-icon">
+          <img src="assets/icon-cart.svg" alt="Panier" />
+        </button>
+      </div>
+    </div>
+    <nav class="nav nav--bordered">
+      <a href="#">Nouveautés</a>
+      <a href="#">Chaussures</a>
+      <a href="#">Homme</a>
+      <a href="#">Femme</a>
+      <a href="#">Enfant</a>
+      <a href="#" class="nav-promo">Promotions</a>
+      <a href="#">Activités</a>
+      <a href="#">Explorer</a>
+    </nav>
+  </header>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <span>Accueil / Mon profil / Création</span>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="step1-main">
+
+    <!-- Titre + stepper -->
+    <div class="step1-intro">
+      <div class="step1-title">
+        <h1>QUELS SPORTS PRATIQUES-TU ?</h1>
+        <p>Sélectionne tes activités pour que nous personnalisions ton équipement et tes recommandations de style.</p>
+      </div>
+
+      <!-- Stepper -->
+      <div class="stepper">
+        <div class="stepper-item stepper-item--active">
+          <div class="stepper-dot stepper-dot--active"></div>
+          <span class="stepper-label stepper-label--active">SPORTS</span>
+        </div>
+        <div class="stepper-line"></div>
+        <div class="stepper-item">
+          <div class="stepper-dot"></div>
+          <span class="stepper-label">MENSURATIONS</span>
+        </div>
+        <div class="stepper-line"></div>
+        <div class="stepper-item">
+          <div class="stepper-dot"></div>
+          <span class="stepper-label">PRÉFÉRENCES</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grille de cartes sport -->
+    <div class="sport-cards-wrapper">
+      <div class="sport-cards" id="sportCards">
+
+        <button class="sport-card" data-sport="TRAIL RUNNING" onclick="toggleSport(this)">
+          <img src="assets/sport-trail.png" alt="Trail running" class="sport-card__img" />
+          <div class="sport-card__gradient"></div>
+          <div class="sport-card__overlay"></div>
+          <div class="sport-card__badge">SÉLECTIONNÉ</div>
+          <span class="sport-card__label">trail running</span>
+        </button>
+
+        <button class="sport-card" data-sport="COURSE À PIED" onclick="toggleSport(this)">
+          <img src="assets/sport-road.png" alt="Course à pied" class="sport-card__img" />
+          <div class="sport-card__gradient"></div>
+          <div class="sport-card__overlay"></div>
+          <div class="sport-card__badge">SÉLECTIONNÉ</div>
+          <span class="sport-card__label">Course à pied</span>
+        </button>
+
+        <button class="sport-card" data-sport="GRAVEL RUNNING" onclick="toggleSport(this)">
+          <img src="assets/sport-gravel.png" alt="Gravel running" class="sport-card__img" />
+          <div class="sport-card__gradient"></div>
+          <div class="sport-card__overlay"></div>
+          <div class="sport-card__badge">SÉLECTIONNÉ</div>
+          <span class="sport-card__label">gravel running</span>
+        </button>
+
+        <button class="sport-card" data-sport="RANDONNÉE" onclick="toggleSport(this)">
+          <img src="assets/sport-rando.png" alt="Randonnée" class="sport-card__img" />
+          <div class="sport-card__gradient"></div>
+          <div class="sport-card__overlay"></div>
+          <div class="sport-card__badge">SÉLECTIONNÉ</div>
+          <span class="sport-card__label">randonnée</span>
+        </button>
+
+        <button class="sport-card" data-sport="SKI" onclick="toggleSport(this)">
+          <img src="assets/sport-ski.png" alt="Ski" class="sport-card__img" />
+          <div class="sport-card__gradient"></div>
+          <div class="sport-card__overlay"></div>
+          <div class="sport-card__badge">SÉLECTIONNÉ</div>
+          <span class="sport-card__label">ski</span>
+        </button>
+
+        <button class="sport-card" data-sport="SKI DE FOND" onclick="toggleSport(this)">
+          <img src="assets/sport-fond.png" alt="Ski de fond" class="sport-card__img" />
+          <div class="sport-card__gradient"></div>
+          <div class="sport-card__overlay"></div>
+          <div class="sport-card__badge">SÉLECTIONNÉ</div>
+          <span class="sport-card__label">ski de fond</span>
+        </button>
+
+        <button class="sport-card" data-sport="SNOWBOARD" onclick="toggleSport(this)">
+          <img src="assets/sport-snow.png" alt="Snowboard" class="sport-card__img" />
+          <div class="sport-card__gradient"></div>
+          <div class="sport-card__overlay"></div>
+          <div class="sport-card__badge">SÉLECTIONNÉ</div>
+          <span class="sport-card__label">Snowboard</span>
+        </button>
+
+      </div>
+      <p class="sport-cards__hint">CLIQUE SUR UNE CARTE POUR SÉLECTIONNER / DÉSÉLECTIONNER</p>
+    </div>
+
+    <div class="step1-divider"></div>
+
+    <!-- Sports sélectionnés -->
+    <div class="selected-sports">
+      <p class="selected-sports__label">TES SPORTS SÉLECTIONNÉS</p>
+      <div class="selected-sports__tags" id="sportsTags">
+        <!-- Les tags apparaissent ici dynamiquement -->
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-member">
+      <h2>DEVENEZ<br />MEMBRE</h2>
+      <p>Les membres S/PLUS bénéficient de la livraison gratuite, de paiements plus rapides, de récompenses spéciales, d'accès à des évènements et plus encore. Rejoignez le programme, c'est 100 % gratuit.</p>
+      <div class="footer-member-actions">
+        <button class="cta-btn">Se connecter</button>
+        <button class="cta-btn">En savoir plus</button>
+      </div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h3>Salomon</h3>
+        <ul>
+          <li><a href="#">Connaître Salomon</a></li>
+          <li><a href="#">Devenir membre S/PLUS</a></li>
+          <li><a href="#">Accès VIP</a></li>
+          <li><a href="#">Accès étudiants</a></li>
+          <li><a href="#">Centre de presse</a></li>
+          <li><a href="#">Carrières</a></li>
+          <li><a href="#">Newsletter</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Services</h3>
+        <ul>
+          <li><a href="#">Guides des tailles</a></li>
+          <li><a href="#">Suivi de commande</a></li>
+          <li><a href="#">Formulaire de Garantie</a></li>
+          <li><a href="#">Déclaration de retour et d'échanges</a></li>
+          <li><a href="#">Service de réparation</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Contactez-nous</a></li>
+          <li><a href="#">Parlez à l'un de nos experts</a></li>
+          <li><a href="#">Localiser un magasin</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Légal</h3>
+        <ul>
+          <li><a href="#">Conditions générales de vente</a></li>
+          <li><a href="#">Conditions générales S/PLUS</a></li>
+          <li><a href="#">Préférences de cookie</a></li>
+          <li><a href="#">Politique relative aux cookies</a></li>
+          <li><a href="#">Politique de confidentialité</a></li>
+          <li><a href="#">Accessibilité - non conforme</a></li>
+          <li><a href="#">Déclaration de conformité</a></li>
+          <li><a href="#">IMPORTANT : RAPPEL VOLONTAIRE</a></li>
+          <li><a href="#">Mentions légales</a></li>
+          <li><a href="#">Avis clients</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Développement durable</h3>
+        <ul>
+          <li><a href="#">Nos engagements</a></li>
+          <li><a href="#">Caractéristiques environnementales des produits</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Livraison</h3>
+        <div class="footer-country">
+          <img src="assets/flag-fr.svg" alt="France" />
+          <span>France</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-social">
+      <a href="#"><img src="assets/facebook.svg" alt="Facebook" /></a>
+      <a href="#"><img src="assets/instagram.svg" alt="Instagram" /></a>
+      <a href="#"><img src="assets/youtube.svg" alt="YouTube" /></a>
+    </div>
+  </footer>
+
+  <!-- BARRE BAS FIXE -->
+  <div class="step-footer">
+    <span class="step-footer__label">ÉTAPE 1/3</span>
+    <button class="step-footer__cta" onclick="goToStep2()">Continuer</button>
+  </div>
+
+  <script>
+    function toggleSport(card) {
+      const sport = card.dataset.sport;
+      card.classList.toggle('sport-card--selected');
+      renderTags();
+    }
+
+    function renderTags() {
+      const tagsContainer = document.getElementById('sportsTags');
+      const selectedCards = document.querySelectorAll('.sport-card--selected');
+      tagsContainer.innerHTML = '';
+      selectedCards.forEach(card => {
+        const sport = card.dataset.sport;
+        const tag = document.createElement('div');
+        tag.className = 'sport-tag';
+        tag.innerHTML = `
+          <span>${sport}</span>
+          <button class="sport-tag__remove" onclick="removeTag(this, '${sport}')">
+            <img src="assets/icon-x-small.svg" alt="Retirer" />
+          </button>
+        `;
+        tagsContainer.appendChild(tag);
+      });
+    }
+
+    function removeTag(btn, sport) {
+      // Déselectionne la carte correspondante
+      const cards = document.querySelectorAll('.sport-card');
+      cards.forEach(card => {
+        if (card.dataset.sport === sport) {
+          card.classList.remove('sport-card--selected');
+        }
+      });
+      renderTags();
+    }
+
+    function goToStep2() {
+      window.location.href = 'step2.html';
+    }
+  </script>
+</body>
+</html>

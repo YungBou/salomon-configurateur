@@ -1,0 +1,276 @@
+/* ─── STEP3 PAGE ─── */
+.step3-page {
+  padding-bottom: 72px;
+}
+
+/* ─── MAIN ─── */
+.step3-main {
+  padding: 16px 56px;
+  padding-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* ─── INTRO (titre + stepper) ─── */
+.step3-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.step3-title h1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #000;
+  text-transform: uppercase;
+  line-height: normal;
+  margin-bottom: 8px;
+}
+
+.step3-title p {
+  font-size: 16px;
+  font-weight: 400;
+  color: #000;
+  line-height: normal;
+  max-width: 690px;
+}
+
+/* ─── STEPPER ─── */
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stepper-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.stepper-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.stepper-dot--active {
+  background: #000;
+  border-color: #000;
+}
+
+.stepper-dot--done {
+  background: transparent;
+  border-color: #000;
+}
+
+.stepper-label {
+  font-size: 11px;
+  font-weight: 400;
+  color: #ccc;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.stepper-label--active {
+  font-weight: 700;
+  color: #000;
+}
+
+.stepper-label--done {
+  font-weight: 700;
+  color: #000;
+}
+
+.stepper-line {
+  width: 64px;
+  height: 1px;
+  background: #ccc;
+  margin-bottom: 16px;
+}
+
+.stepper-line--done {
+  background: #000;
+}
+
+/* ─── SECTION PRÉFÉRENCES ─── */
+.pref-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* En-tête : icône + titre + ligne */
+.pref-section__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pref-section__icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.pref-section__title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #696969;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.pref-section__line {
+  flex: 1;
+  height: 1px;
+  background: #696969;
+}
+
+/* ─── GROUPE DE PRÉFÉRENCE ─── */
+.pref-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pref-group__label {
+  font-size: 12px;
+  font-weight: 400;
+  color: #696969;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ─── CHIPS ─── */
+.pref-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.pref-chip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  border: 1px solid #000;
+  border-radius: 4px;
+  background: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #000;
+  letter-spacing: 1px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.pref-chip--selected {
+  background: #000;
+  color: #fff;
+}
+
+/* ─── SWATCHES COULEURS ─── */
+.pref-colors {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.color-swatch {
+  width: 31px;
+  height: 31px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  position: relative;
+  transition: outline-offset 0.1s ease;
+  outline: 2px solid transparent;
+  outline-offset: 0px;
+}
+
+/* Swatch blanc : bordure grise pour le distinguer du fond */
+.color-swatch--light {
+  border: 1px solid #ccc;
+}
+
+/* État sélectionné : anneau noir autour */
+.color-swatch--selected {
+  outline: 2px solid #000;
+  outline-offset: 3px;
+}
+
+/* ─── BARRE BAS FIXE ─── */
+.step-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-top: 1px solid #ccc;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 14px 56px;
+  z-index: 100;
+}
+
+.step-footer__back {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  color: #000;
+  letter-spacing: 1px;
+  padding: 0;
+  justify-self: start;
+}
+
+.step-footer__back img {
+  width: 20px;
+  height: 8px;
+  display: block;
+}
+
+.step-footer__label {
+  font-size: 11px;
+  font-weight: 400;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  grid-column: 2;
+}
+
+.step-footer__cta {
+  grid-column: 3;
+  justify-self: end;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 9999px;
+  padding: 16px 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.step-footer__cta:hover {
+  background: #222;
+}

@@ -1,0 +1,129 @@
+/* ─── SUCCESS PAGE ─── */
+.success-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ─── MAIN : zone centrée verticalement ─── */
+.success-main {
+  flex-shrink: 0;
+  height: calc(100vh - 140px); /* 140px = hauteur preheader + header + nav */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 56px;
+  padding-bottom: 160px; /* compense la barre fixe du bas pour centrage visuel */
+}
+
+.success-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  max-width: 876px;
+  width: 100%;
+}
+
+.success-icon {
+  width: 60px;
+  height: 60px;
+  display: block;
+}
+
+.success-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.success-text h1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #000;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: normal;
+}
+
+.success-text p {
+  font-size: 12px;
+  font-weight: 400;
+  color: #696969;
+  text-align: center;
+  line-height: normal;
+  max-width: 422px;
+}
+
+/* ─── FOOTER FIXE ─── */
+.success-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-top: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 14px 56px;
+  z-index: 100;
+}
+
+.success-footer__question {
+  font-size: 12px;
+  font-weight: 400;
+  color: #696969;
+  text-align: center;
+}
+
+.success-footer__actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 20px;
+  border-radius: 9999px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.15s ease;
+}
+
+.success-cta--primary {
+  background: #000;
+  color: #fff;
+  border: none;
+}
+
+.success-cta--primary:hover {
+  background: #222;
+}
+
+.success-cta--secondary {
+  background: #fff;
+  color: #000;
+  border: 1px solid #000;
+}
+
+.success-cta--secondary:hover {
+  background: #f5f5f5;
+}
+
+.success-footer__hint {
+  font-size: 12px;
+  font-weight: 400;
+  color: #696969;
+  text-align: center;
+}

@@ -1,0 +1,324 @@
+/* ─── STEP1 PAGE ─── */
+.step1-page {
+  padding-bottom: 72px; /* espace pour la barre footer fixe */
+}
+
+/* ─── NAV AVEC BORDURE BAS ─── */
+.nav--bordered {
+  border-bottom: 0.5px solid #ccc;
+}
+
+
+/* ─── MAIN ─── */
+.step1-main {
+  padding: 16px 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* ─── INTRO (titre + stepper) ─── */
+.step1-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.step1-title h1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #000;
+  text-transform: uppercase;
+  line-height: normal;
+  margin-bottom: 8px;
+  max-width: 690px;
+}
+
+.step1-title p {
+  font-size: 16px;
+  font-weight: 400;
+  color: #000;
+  line-height: normal;
+  max-width: 690px;
+}
+
+/* ─── STEPPER ─── */
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stepper-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.stepper-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.stepper-dot--active {
+  background: #000;
+  border-color: #000;
+}
+
+.stepper-label {
+  font-size: 11px;
+  font-weight: 400;
+  color: #ccc;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.stepper-label--active {
+  font-weight: 700;
+  color: #000;
+}
+
+.stepper-line {
+  width: 64px;
+  height: 1px;
+  background: #ccc;
+  margin-bottom: 16px; /* compense la hauteur du label */
+}
+
+/* ─── GRILLE DE CARTES ─── */
+.sport-cards-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  /* déborde du padding du main pour le scroll pleine largeur */
+  margin: 0 -56px;
+  padding: 0 56px;
+}
+
+.sport-cards {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 8px; /* espace pour la scrollbar */
+}
+
+/* Masquer la scrollbar visuellement tout en gardant le scroll */
+.sport-cards::-webkit-scrollbar {
+  height: 4px;
+}
+.sport-cards::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 2px;
+}
+.sport-cards::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 2px;
+}
+
+/* Carte : taille exacte du composant Figma */
+.sport-card {
+  position: relative;
+  width: 274px;
+  min-width: 274px;
+  height: 391px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: none;
+  cursor: pointer;
+  padding: 20px;
+  display: flex;
+  align-items: flex-end;
+  background: none;
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+.sport-card__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Gradient bas : transparent → noir (pour lisibilité du label) */
+.sport-card__gradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 201px;
+  background: linear-gradient(to top, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 100%);
+}
+
+/* Overlay blanc = état NON sélectionné */
+.sport-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.47);
+  transition: opacity 0.2s ease;
+}
+
+/* Sélectionné → overlay disparaît */
+.sport-card--selected .sport-card__overlay {
+  opacity: 0;
+}
+
+/* Badge "SÉLECTIONNÉ" en haut à droite — caché par défaut */
+.sport-card__badge {
+  position: absolute;
+  top: 0;
+  left: 169px; /* 274 - 105px = colle au bord droit */
+  right: 0;
+  background: #000;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 0 8px 0 0; /* arrondi en haut à droite = coin de la carte */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  white-space: nowrap;
+}
+
+/* Sélectionné → badge apparaît */
+.sport-card--selected .sport-card__badge {
+  opacity: 1;
+}
+
+.sport-card__label {
+  position: relative;
+  z-index: 1;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  line-height: 28px;
+  text-align: left;
+}
+
+.sport-cards__hint {
+  font-size: 12px;
+  font-weight: 400;
+  color: #696969;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+/* ─── SÉPARATEUR ─── */
+.step1-divider {
+  height: 1px;
+  background: #ccc;
+  width: 100%;
+}
+
+/* ─── SPORTS SÉLECTIONNÉS ─── */
+.selected-sports {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 16px;
+}
+
+.selected-sports__label {
+  font-size: 12px;
+  font-weight: 400;
+  color: #696969;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.selected-sports__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 34px;
+}
+
+.sport-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 1px solid #000;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.sport-tag__remove {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 8px;
+  height: 8px;
+}
+
+.sport-tag__remove img {
+  width: 8px;
+  height: 8px;
+  display: block;
+}
+
+/* ─── BARRE BAS FIXE ─── */
+.step-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-top: 1px solid #ccc;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 14px 56px;
+  z-index: 100;
+}
+
+.step-footer__label {
+  font-size: 11px;
+  font-weight: 400;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  grid-column: 2;
+}
+
+.step-footer__cta {
+  grid-column: 3;
+  justify-self: end;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 9999px;
+  padding: 16px 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.step-footer__cta:hover {
+  background: #222;
+}

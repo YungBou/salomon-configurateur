@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Salomon — Configurateur de tenue</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="configurator.css" />
+</head>
+<body class="config-page">
+
+  <!-- PREHEADER -->
+  <div class="preheader">
+    <span>Trouver un magasin</span>
+    <div class="preheader-center">
+      <span>Livraison gratuite pour les membres</span>
+      <a href="#">Détails</a>
+    </div>
+    <div class="preheader-right">
+      <span>S'inscrire à nos communications</span>
+      <a href="#">Aide</a>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-top">
+      <a href="index.html" class="logo">
+        <img src="assets/logo.svg" alt="Salomon" />
+      </a>
+      <div class="search-bar">
+        <img src="assets/icon-search.svg" alt="" class="search-icon" />
+        <span class="search-placeholder">Rechercher un produit, une activité, des chaussures...</span>
+      </div>
+      <div class="header-actions">
+        <button class="btn-account">
+          <span class="icon-user-check">
+            <img src="assets/icon-user.svg" alt="" />
+            <svg class="check-badge" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <polyline points="2,6 5,9 10,3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span>Hugo</span>
+        </button>
+        <button class="btn-icon">
+          <img src="assets/icon-heart.svg" alt="Favoris" />
+        </button>
+        <button class="btn-icon">
+          <img src="assets/icon-cart.svg" alt="Panier" />
+        </button>
+      </div>
+    </div>
+    <nav class="nav nav--bordered">
+      <a href="#">Nouveautés</a>
+      <a href="#">Chaussures</a>
+      <a href="#">Homme</a>
+      <a href="#">Femme</a>
+      <a href="#">Enfant</a>
+      <a href="#" class="nav-promo">Promotions</a>
+      <a href="#">Activités</a>
+      <a href="#">Explorer</a>
+    </nav>
+  </header>
+
+  <!-- CONFIGURATEUR : 3 panneaux -->
+  <div class="config-workspace">
+
+    <!-- ── PANNEAU GAUCHE ── -->
+    <aside class="config-left" id="configLeft">
+      <p class="config-left__title">Trail running — sélection</p>
+
+      <!-- Nav catégories -->
+      <nav class="config-cat-nav" id="catNav"></nav>
+
+      <div class="config-left__divider"></div>
+
+      <!-- Liste produits -->
+      <div class="config-products" id="productList"></div>
+    </aside>
+
+    <!-- ── PANNEAU CENTRAL : flat-lay ── -->
+    <div class="config-center">
+
+      <div class="flatlay-board">
+        <div class="fl-item fl-casquette" id="flatlay-casquette">
+          <img class="fl-img" src="" alt="" />
+        </div>
+        <div class="fl-item fl-tshirt" id="flatlay-tshirt">
+          <img class="fl-img" src="" alt="" />
+        </div>
+        <div class="fl-item fl-short" id="flatlay-short">
+          <img class="fl-img" src="" alt="" />
+        </div>
+        <div class="fl-item fl-chaussettes" id="flatlay-chaussettes">
+          <img class="fl-img" src="" alt="" />
+        </div>
+        <div class="fl-item fl-chaussures" id="flatlay-chaussures">
+          <img class="fl-img" src="" alt="" />
+        </div>
+      </div>
+
+      <button class="config-reset" onclick="resetAll()">
+        <img src="assets/icon-rotate-ccw.svg" alt="" class="config-reset__icon" />
+        <span>Reset</span>
+      </button>
+    </div>
+
+    <!-- ── PANNEAU DROIT ── -->
+    <aside class="config-right">
+      <div class="config-right__header">
+        <p class="config-right__title">Mon ensemble</p>
+        <p class="config-right__count" id="selectionCount">0 article sélectionné</p>
+      </div>
+
+      <div class="config-right__divider"></div>
+
+      <!-- Items sélectionnés -->
+      <div class="config-selected-items" id="selectedItems"></div>
+
+      <div class="config-right__divider" id="totalDivider"></div>
+
+      <!-- Total -->
+      <div class="config-total">
+        <span class="config-total__label">Total estimé</span>
+        <span class="config-total__price" id="totalPrice">0€</span>
+      </div>
+
+      <!-- CTAs -->
+      <div class="config-ctas">
+        <button class="config-cta config-cta--primary">Ajouter au panier</button>
+        <button class="config-cta config-cta--secondary" onclick="window.location.href='ensemble-success.html'">Sauvegarder mon ensemble</button>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-member">
+      <h2>DEVENEZ<br />MEMBRE</h2>
+      <p>Les membres S/PLUS bénéficient de la livraison gratuite, de paiements plus rapides, de récompenses spéciales, d'accès à des évènements et plus encore. Rejoignez le programme, c'est 100 % gratuit.</p>
+      <div class="footer-member-actions">
+        <button class="cta-btn">Se connecter</button>
+        <button class="cta-btn">En savoir plus</button>
+      </div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h3>Salomon</h3>
+        <ul>
+          <li><a href="#">Connaître Salomon</a></li>
+          <li><a href="#">Devenir membre S/PLUS</a></li>
+          <li><a href="#">Accès VIP</a></li>
+          <li><a href="#">Accès étudiants</a></li>
+          <li><a href="#">Centre de presse</a></li>
+          <li><a href="#">Carrières</a></li>
+          <li><a href="#">Newsletter</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Services</h3>
+        <ul>
+          <li><a href="#">Guides des tailles</a></li>
+          <li><a href="#">Suivi de commande</a></li>
+          <li><a href="#">Formulaire de Garantie</a></li>
+          <li><a href="#">Déclaration de retour et d'échanges</a></li>
+          <li><a href="#">Service de réparation</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Contactez-nous</a></li>
+          <li><a href="#">Parlez à l'un de nos experts</a></li>
+          <li><a href="#">Localiser un magasin</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Légal</h3>
+        <ul>
+          <li><a href="#">Conditions générales de vente</a></li>
+          <li><a href="#">Conditions générales S/PLUS</a></li>
+          <li><a href="#">Préférences de cookie</a></li>
+          <li><a href="#">Politique relative aux cookies</a></li>
+          <li><a href="#">Politique de confidentialité</a></li>
+          <li><a href="#">Accessibilité - non conforme</a></li>
+          <li><a href="#">Déclaration de conformité</a></li>
+          <li><a href="#">IMPORTANT : RAPPEL VOLONTAIRE</a></li>
+          <li><a href="#">Mentions légales</a></li>
+          <li><a href="#">Avis clients</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Développement durable</h3>
+        <ul>
+          <li><a href="#">Nos engagements</a></li>
+          <li><a href="#">Caractéristiques environnementales des produits</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Livraison</h3>
+        <div class="footer-country">
+          <img src="assets/flag-fr.svg" alt="France" />
+          <span>France</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-social">
+      <a href="#"><img src="assets/facebook.svg" alt="Facebook" /></a>
+      <a href="#"><img src="assets/instagram.svg" alt="Instagram" /></a>
+      <a href="#"><img src="assets/youtube.svg" alt="YouTube" /></a>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script>
+    // ── DONNÉES ──
+    const CATEGORIES = ['CASQUETTES & BONNETS', 'T-SHIRT', 'SHORT', 'CHAUSSETTES', 'CHAUSSURES'];
+
+    const PRODUCTS = {
+      'T-SHIRT': [
+        { id: 'tshirt-1', name: 'Shakeout core graphic',    size: 'XL', price: 60,  img: 'assets/prod-tshirt-1.png' },
+        { id: 'tshirt-2', name: 'S/LAB salomon ultra print',size: 'XL', price: 115, img: 'assets/prod-tshirt-2.png' },
+        { id: 'tshirt-3', name: 'S/LAB speed',              size: 'XL', price: 70,  img: 'assets/prod-tshirt-3.png' },
+      ],
+      'SHORT': [
+        { id: 'short-1', name: 'Sense Aero 2in1 Trail 5"',    size: 'L', price: 90,  img: 'assets/prod-short-1.png' },
+        { id: 'short-2', name: 'S/LAB Salomon Ultra 2in1',    size: 'L', price: 180, img: 'assets/prod-short-2.png' },
+        { id: 'short-3', name: 'Sense Stow Short Tights 9"',  size: 'L', price: 80,  img: 'assets/prod-short-3.png' },
+      ],
+      'CHAUSSETTES': [
+        { id: 'chaussettes-1', name: 'S/LAB Glide Crew',          size: '42/44', price: 28, img: 'assets/prod-chaussettes-1.png' },
+        { id: 'chaussettes-2', name: 'S/LAB Salomon Ultra Crew',   size: '42/44', price: 30, img: 'assets/prod-chaussettes-2.png' },
+        { id: 'chaussettes-3', name: 'GRVL Crew',                  size: '42/44', price: 20, img: 'assets/prod-chaussettes-3.png' },
+      ],
+      'CHAUSSURES': [
+        { id: 'chaussures-1', name: 'S/Lab Ultra Glide 2', size: '46', price: 250, img: 'assets/prod-chaussures-1.png' },
+        { id: 'chaussures-2', name: 'Ultra Glide 4 Wide',  size: '46', price: 150, img: 'assets/prod-chaussures-2.png' },
+        { id: 'chaussures-3', name: 'S/Lab Genesis',       size: '46', price: 200, img: 'assets/prod-chaussures-3.png' },
+      ],
+      'CASQUETTES & BONNETS': [
+        { id: 'casquette-1', name: 'Sense Aero',                  size: 'Universelle', price: 20, img: 'assets/prod-casquette-1.png' },
+        { id: 'casquette-2', name: 'Salomon Sahara',              size: 'Universelle', price: 50, img: 'assets/prod-casquette-2.png' },
+        { id: 'casquette-3', name: 'S/LAB Salomon Ultra Summer',  size: 'L/XL',        price: 50, img: 'assets/prod-casquette-3.png' },
+      ],
+    };
+
+    // ── SIMULATION TISSU (flat-lay) ─────────────────────────────────────────
+    function createClothSim() {
+      const SEGS=26, N=SEGS+1, SIZE=2.2, DAMPING=0.968;
+      const SPR_XY=0.008, SPR_Z=0.04, ITERS=16;
+      const REST=SIZE/SEGS, REST_D=REST*Math.SQRT2;
+      let rdr,scene,cam,mesh,geo,mat;
+      let px,py,pz,ox,oy,oz,rx,ry,cons=[];
+      let hoverPt=null,hoverActive=false,dragNode=null;
+      let simT=0,lastT=0,animId=null,cvs=null,el=null,ready=false;
+
+      function nid(i,j){return j*N+i;}
+
+      function resetPts(asp){
+        asp = asp || 1;
+        const SX=SIZE*asp, SY=SIZE;
+        const RX=SX/SEGS, RY=SY/SEGS, RD=Math.sqrt(RX*RX+RY*RY);
+        px=new Float32Array(N*N);py=new Float32Array(N*N);pz=new Float32Array(N*N);
+        ox=new Float32Array(N*N);oy=new Float32Array(N*N);oz=new Float32Array(N*N);
+        rx=new Float32Array(N*N);ry=new Float32Array(N*N);
+        cons=[];
+        for(let j=0;j<N;j++)for(let i=0;i<N;i++){
+          const k=nid(i,j);
+          px[k]=rx[k]=(i/SEGS-.5)*SX;
+          py[k]=ry[k]=(.5-j/SEGS)*SY - 0.08;
+        }
+        for(let j=0;j<N;j++)for(let i=0;i<N;i++){
+          if(i<SEGS)cons.push(nid(i,j),nid(i+1,j),RX);
+          if(j<SEGS)cons.push(nid(i,j),nid(i,j+1),RY);
+          if(i<SEGS&&j<SEGS){cons.push(nid(i,j),nid(i+1,j+1),RD);cons.push(nid(i+1,j),nid(i,j+1),RD);}
+        }
+      }
+
+      function init(W,H){
+        if(typeof THREE==='undefined')return false;
+        resetPts();
+        cvs=document.createElement('canvas');
+        Object.assign(cvs.style,{position:'absolute',inset:'0',width:'100%',height:'100%',zIndex:'10',display:'block',cursor:'default'});
+        rdr=new THREE.WebGLRenderer({canvas:cvs,antialias:true,alpha:true});
+        rdr.setClearColor(0x000000,0);
+        rdr.setSize(W,H);rdr.setPixelRatio(window.devicePixelRatio||1);
+        scene=new THREE.Scene();
+        cam=new THREE.PerspectiveCamera(42,W/H,0.01,50);
+        cam.position.set(0,0,3.2);cam.lookAt(0,0,0);
+        mat=new THREE.MeshBasicMaterial({side:THREE.DoubleSide,transparent:true});
+        const verts=new Float32Array(N*N*3),uvs=new Float32Array(N*N*2);
+        for(let j=0;j<N;j++)for(let i=0;i<N;i++){
+          const k=nid(i,j);verts[k*3]=px[k];verts[k*3+1]=py[k];
+          uvs[k*2]=i/SEGS;uvs[k*2+1]=1-j/SEGS;
+        }
+        const idx=[];
+        for(let j=0;j<SEGS;j++)for(let i=0;i<SEGS;i++){
+          const a=nid(i,j),b=nid(i+1,j),c=nid(i,j+1),d=nid(i+1,j+1);
+          idx.push(a,b,c,b,d,c);
+        }
+        geo=new THREE.BufferGeometry();
+        geo.setAttribute('position',new THREE.BufferAttribute(verts,3));
+        geo.setAttribute('uv',new THREE.BufferAttribute(uvs,2));
+        geo.setIndex(idx);geo.computeVertexNormals();
+        mesh=new THREE.Mesh(geo,mat);scene.add(mesh);
+        ready=true;return true;
+      }
+
+      function loadTex(src){
+        const img=new Image();
+        img.onload=()=>{
+          const c=document.createElement('canvas');
+          c.width=img.naturalWidth;c.height=img.naturalHeight;
+          c.getContext('2d').drawImage(img,0,0);
+          const t=new THREE.CanvasTexture(c);
+          if(mat.map)mat.map.dispose();
+          mat.map=t;mat.needsUpdate=true;
+          // Recalcule le mesh avec les proportions RÉELLES de l'image
+          const asp=img.naturalWidth/img.naturalHeight;
+          resetPts(asp);
+          for(let k=0;k<N*N;k++){px[k]=rx[k];py[k]=ry[k];pz[k]=0;ox[k]=rx[k];oy[k]=ry[k];oz[k]=-0.018;}
+        };
+        img.src=src;
+      }
+
+      function simulate(dt){
+        for(let k=0;k<N*N;k++){
+          if(k===dragNode)continue;
+          const vx=px[k]-ox[k],vy=py[k]-oy[k],vz=pz[k]-oz[k];
+          ox[k]=px[k];oy[k]=py[k];oz[k]=pz[k];
+          px[k]+=vx*DAMPING+(rx[k]-px[k])*SPR_XY;
+          py[k]+=vy*DAMPING+(ry[k]-py[k])*SPR_XY;
+          pz[k]+=vz*DAMPING-pz[k]*SPR_Z;
+        }
+        if(hoverActive&&hoverPt&&dragNode===null){
+          const r=0.44;
+          for(let k=0;k<N*N;k++){
+            const dx=px[k]-hoverPt.x,dy=py[k]-hoverPt.y,d=Math.sqrt(dx*dx+dy*dy);
+            if(d<r)pz[k]+=(1-d/r)*0.007*Math.sin(simT*5+d*12);
+          }
+        }
+        for(let it=0;it<ITERS;it++){
+          for(let c=0;c<cons.length;c+=3){
+            const a=cons[c],b=cons[c+1],rest=cons[c+2];
+            const dx=px[b]-px[a],dy=py[b]-py[a],dz=pz[b]-pz[a];
+            const len=Math.sqrt(dx*dx+dy*dy+dz*dz);if(len<1e-5)continue;
+            const co=(len-rest)/len*0.5;
+            px[a]+=dx*co;py[a]+=dy*co;pz[a]+=dz*co;
+            px[b]-=dx*co;py[b]-=dy*co;pz[b]-=dz*co;
+          }
+        }
+      }
+
+      function loop(now){
+        animId=requestAnimationFrame(loop);
+        const dt=Math.min((now-lastT)/1000,0.022);lastT=now;simT=now/1000;
+        simulate(dt);
+        const attr=geo.attributes.position;
+        for(let k=0;k<N*N;k++)attr.setXYZ(k,px[k],py[k],pz[k]);
+        attr.needsUpdate=true;geo.computeVertexNormals();
+        rdr.render(scene,cam);
+      }
+
+      const cornerDefs=[{i:0,j:0},{i:SEGS,j:0},{i:0,j:SEGS},{i:SEGS,j:SEGS}];
+      function toNDC(e){const r=cvs.getBoundingClientRect();return new THREE.Vector2((e.clientX-r.left)/r.width*2-1,-((e.clientY-r.top)/r.height*2-1));}
+      function ndcToWorld(ndc){const v=new THREE.Vector3(ndc.x,ndc.y,.5).unproject(cam);const dir=v.sub(cam.position).normalize();const t=-cam.position.z/dir.z;return cam.position.clone().addScaledVector(dir,t);}
+      function worldToPx(wx,wy,wz){const r=cvs.getBoundingClientRect();const s=new THREE.Vector3(wx,wy,wz).project(cam);return{x:(s.x*.5+.5)*r.width,y:(-.5*s.y+.5)*r.height};}
+
+      function onMove(e){
+        const ndc=toNDC(e);
+        if(dragNode!==null){const wp=ndcToWorld(ndc);px[dragNode]=wp.x;py[dragNode]=wp.y;pz[dragNode]=.22;ox[dragNode]=wp.x;oy[dragNode]=wp.y;oz[dragNode]=.22;return;}
+        const ray=new THREE.Raycaster();ray.setFromCamera(ndc,cam);
+        const hits=ray.intersectObject(mesh);
+        if(hits.length){hoverPt=hits[0].point;hoverActive=true;}else hoverActive=false;
+        const r=cvs.getBoundingClientRect();const mx=e.clientX-r.left,my=e.clientY-r.top;let bd=999;
+        cornerDefs.forEach(c=>{const k=nid(c.i,c.j);const s=worldToPx(px[k],py[k],pz[k]);bd=Math.min(bd,Math.hypot(mx-s.x,my-s.y));});
+        cvs.style.cursor=bd<52?'grab':(hoverActive?'crosshair':'default');
+      }
+      function onDown(e){
+        const r=cvs.getBoundingClientRect();const mx=e.clientX-r.left,my=e.clientY-r.top;let best=0,bd=999;
+        cornerDefs.forEach((c,i)=>{const k=nid(c.i,c.j);const s=worldToPx(px[k],py[k],pz[k]);const d=Math.hypot(mx-s.x,my-s.y);if(d<bd){bd=d;best=i;}});
+        if(bd<68){dragNode=nid(cornerDefs[best].i,cornerDefs[best].j);cvs.style.cursor='grabbing';}
+      }
+      function onUp(){dragNode=null;}
+
+      return {
+        activate(targetEl,src){
+          const W=targetEl.offsetWidth||400, H=targetEl.offsetHeight||295;
+          if(!ready&&!init(W,H))return;
+          if(el===targetEl){loadTex(src);return;}
+          el=targetEl;resetPts();hoverActive=false;dragNode=null;
+          rdr.setSize(W,H);rdr.setPixelRatio(window.devicePixelRatio||1);
+          cam.aspect=W/H;cam.updateProjectionMatrix();
+          loadTex(src);
+          // Force-reset à plat, puis infime vitesse initiale uniforme → pendule sans pliure
+          for(let k=0;k<N*N;k++){ px[k]=rx[k]; py[k]=ry[k]; pz[k]=0; ox[k]=rx[k]; oy[k]=ry[k]; oz[k]=-0.018; }
+          // Cacher l'image statique
+          const img=el.querySelector('img');if(img)img.style.visibility='hidden';
+          el.style.pointerEvents='auto';
+          if(!el.contains(cvs))el.appendChild(cvs);
+          cvs.style.display='block';
+          cvs.addEventListener('mousemove',onMove);
+          cvs.addEventListener('mousedown',onDown);
+          cvs.addEventListener('mouseup',onUp);
+          if(animId){cancelAnimationFrame(animId);animId=null;}
+          lastT=performance.now();loop(lastT);
+        },
+        deactivate(){
+          if(!cvs)return;
+          if(animId){cancelAnimationFrame(animId);animId=null;}
+          cvs.style.display='none';
+          cvs.removeEventListener('mousemove',onMove);
+          cvs.removeEventListener('mousedown',onDown);
+          cvs.removeEventListener('mouseup',onUp);
+          // Restaurer l'image statique
+          if(el){const img=el.querySelector('img');if(img)img.style.visibility='';el.style.pointerEvents='';}
+          hoverActive=false;dragNode=null;el=null;
+        }
+      };
+    }
+
+    const clothTshirt     = createClothSim();
+    const clothShort      = createClothSim();
+    const clothCasquette  = createClothSim();
+    const clothChaussettes= createClothSim();
+    const clothChaussures = createClothSim();
+    // ─────────────────────────────────────────────────────────────────────────
+
+    // ── ÉTAT ──
+    let activeCategory = 'T-SHIRT';
+    const selected = {}; // { catKey: productId | null }
+
+    // ── RENDER : nav catégories ──
+    function renderCatNav() {
+      const nav = document.getElementById('catNav');
+      nav.innerHTML = '';
+      CATEGORIES.forEach(cat => {
+        const btn = document.createElement('button');
+        btn.className = 'config-cat-btn' + (cat === activeCategory ? ' config-cat-btn--active' : '');
+        btn.textContent = cat.charAt(0) + cat.slice(1).toLowerCase();
+        btn.onclick = () => { activeCategory = cat; render(); };
+        nav.appendChild(btn);
+      });
+    }
+
+    // ── RENDER : liste produits ──
+    function renderProducts() {
+      const list = document.getElementById('productList');
+      list.innerHTML = '';
+      const prods = PRODUCTS[activeCategory] || [];
+      if (prods.length === 0) {
+        const empty = document.createElement('p');
+        empty.className = 'config-products__empty';
+        empty.textContent = 'Aucun article disponible pour cette catégorie.';
+        list.appendChild(empty);
+        return;
+      }
+      prods.forEach(prod => {
+        const isSelected = selected[activeCategory] === prod.id;
+        const card = document.createElement('div');
+        card.className = 'config-product-card' + (isSelected ? ' config-product-card--selected' : '');
+        card.innerHTML = `
+          <div class="config-product-card__img-wrap">
+            <img src="${prod.img}" alt="${prod.name}" class="config-product-card__img" />
+            <div class="config-product-card__badge">SÉLECTIONNÉ</div>
+          </div>
+          <div class="config-product-card__bar"></div>
+          <div class="config-product-card__info">
+            <p class="config-product-card__name">${prod.name}</p>
+            <p class="config-product-card__size">Size — ${prod.size}</p>
+            <p class="config-product-card__price">${prod.price}€</p>
+          </div>
+        `;
+        card.onclick = () => selectProduct(activeCategory, prod.id);
+        list.appendChild(card);
+      });
+    }
+
+    // ── RENDER : panneau droit ──
+    function renderRightPanel() {
+      const container = document.getElementById('selectedItems');
+      const countEl   = document.getElementById('selectionCount');
+      const totalEl   = document.getElementById('totalPrice');
+
+      container.innerHTML = '';
+      let total = 0;
+      let count = 0;
+
+      CATEGORIES.forEach(cat => {
+        const prodId = selected[cat];
+        if (!prodId) return;
+        const prod = (PRODUCTS[cat] || []).find(p => p.id === prodId);
+        if (!prod) return;
+
+        count++;
+        total += prod.price;
+
+        const row = document.createElement('div');
+        row.className = 'config-selected-row';
+        row.innerHTML = `
+          <img src="${prod.img}" alt="${prod.name}" class="config-selected-row__thumb" />
+          <div class="config-selected-row__info">
+            <p class="config-selected-row__cat">${cat}</p>
+            <p class="config-selected-row__name">${prod.name}</p>
+            <p class="config-selected-row__price">${prod.price}€</p>
+          </div>
+          <button class="config-selected-row__remove" onclick="removeItem('${cat}')">
+            <img src="assets/icon-x-small2.svg" alt="Retirer" />
+          </button>
+        `;
+
+        container.appendChild(row);
+
+        // Divider after each item
+        const div = document.createElement('div');
+        div.className = 'config-right__divider';
+        container.appendChild(div);
+      });
+
+      countEl.textContent = count + ' article' + (count > 1 ? 's' : '') + ' sélectionné' + (count > 1 ? 's' : '');
+      totalEl.textContent = total + '€';
+    }
+
+    // ── CORRESPONDANCE catégorie → id flat-lay + instance tissu ──
+    const ZONE_IDS = {
+      'T-SHIRT':              'flatlay-tshirt',
+      'SHORT':                'flatlay-short',
+      'CHAUSSETTES':          'flatlay-chaussettes',
+      'CHAUSSURES':           'flatlay-chaussures',
+      'CASQUETTES & BONNETS': 'flatlay-casquette',
+    };
+    const CLOTH_SIMS = {
+      'T-SHIRT':              clothTshirt,
+      'SHORT':                clothShort,
+      'CHAUSSETTES':          clothChaussettes,
+      'CHAUSSURES':           clothChaussures,
+      'CASQUETTES & BONNETS': clothCasquette,
+    };
+
+    // ── RENDER : flat-lay ──
+    function renderMannequin() {
+      CATEGORIES.forEach(cat => {
+        const el   = document.getElementById(ZONE_IDS[cat]);
+        const sim  = CLOTH_SIMS[cat];
+        if (!el) return;
+        const prodId = selected[cat];
+        if (prodId) {
+          const prod = (PRODUCTS[cat] || []).find(p => p.id === prodId);
+          if (prod) {
+            el.querySelector('img').src = prod.img;
+            el.classList.add('fl-item--visible');
+            sim.activate(el, prod.img);
+          }
+        } else {
+          el.classList.remove('fl-item--visible');
+          el.querySelector('img').src = '';
+          sim.deactivate();
+        }
+      });
+    }
+
+    // ── ACTIONS ──
+    function selectProduct(cat, prodId) {
+      selected[cat] = selected[cat] === prodId ? null : prodId;
+      render();
+    }
+
+    function removeItem(cat) {
+      selected[cat] = null;
+      render();
+    }
+
+    function resetAll() {
+      CATEGORIES.forEach(cat => { selected[cat] = null; });
+      render();
+    }
+
+    // ── RENDER GLOBAL ──
+    function render() {
+      renderCatNav();
+      renderProducts();
+      renderRightPanel();
+      renderMannequin();
+    }
+
+    // Init
+    render();
+  </script>
+
+</body>
+</html>
