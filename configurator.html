@@ -85,6 +85,7 @@
     <div class="config-center">
 
       <div class="flatlay-board">
+        <!-- Items flat-lay -->
         <div class="fl-item fl-casquette" id="flatlay-casquette">
           <img class="fl-img" src="" alt="" />
         </div>
@@ -100,12 +101,45 @@
         <div class="fl-item fl-chaussures" id="flatlay-chaussures">
           <img class="fl-img" src="" alt="" />
         </div>
+
+        <!-- Flèches de navigation — positionnées hors des fl-items pour un axe commun -->
+        <!-- Casquette : centré à 69px (0 + 138/2) -->
+        <div class="fl-arrow-pair fl-arrow-pair--full" style="top: 69px;">
+          <button class="fl-arrow fl-arrow--prev" onclick="cycleProduct('CASQUETTES & BONNETS', -1)">‹</button>
+          <button class="fl-arrow fl-arrow--next" onclick="cycleProduct('CASQUETTES & BONNETS', 1)">›</button>
+        </div>
+        <!-- T-shirt : centré à 202px (55 + 295/2) -->
+        <div class="fl-arrow-pair fl-arrow-pair--full" style="top: 202px;">
+          <button class="fl-arrow fl-arrow--prev" onclick="cycleProduct('T-SHIRT', -1)">‹</button>
+          <button class="fl-arrow fl-arrow--next" onclick="cycleProduct('T-SHIRT', 1)">›</button>
+        </div>
+        <!-- Short : centré à 407px (268 + 278/2) -->
+        <div class="fl-arrow-pair fl-arrow-pair--full" style="top: 407px;">
+          <button class="fl-arrow fl-arrow--prev" onclick="cycleProduct('SHORT', -1)">‹</button>
+          <button class="fl-arrow fl-arrow--next" onclick="cycleProduct('SHORT', 1)">›</button>
+        </div>
+        <!-- Chaussettes : centré à 569px, flèches autour de l'item gauche -->
+        <div class="fl-arrow-pair fl-arrow-pair--chaussettes" style="top: 569px;">
+          <button class="fl-arrow fl-arrow--prev" onclick="cycleProduct('CHAUSSETTES', -1)">‹</button>
+          <button class="fl-arrow fl-arrow--next" onclick="cycleProduct('CHAUSSETTES', 1)">›</button>
+        </div>
+        <!-- Chaussures : centré à 569px, flèches autour de l'item droit -->
+        <div class="fl-arrow-pair fl-arrow-pair--chaussures" style="top: 569px;">
+          <button class="fl-arrow fl-arrow--prev" onclick="cycleProduct('CHAUSSURES', -1)">‹</button>
+          <button class="fl-arrow fl-arrow--next" onclick="cycleProduct('CHAUSSURES', 1)">›</button>
+        </div>
       </div>
 
-      <button class="config-reset" onclick="resetAll()">
-        <img src="assets/icon-rotate-ccw.svg" alt="" class="config-reset__icon" />
-        <span>Reset</span>
-      </button>
+      <div class="config-center-actions">
+        <button class="config-random" onclick="randomAll()">
+          <img src="assets/icon-shuffle.svg" alt="" class="config-reset__icon" />
+          <span>Aléatoire</span>
+        </button>
+        <button class="config-reset" onclick="resetAll()">
+          <img src="assets/icon-rotate-ccw.svg" alt="" class="config-reset__icon" />
+          <span>Reset</span>
+        </button>
+      </div>
     </div>
 
     <!-- ── PANNEAU DROIT ── -->
@@ -430,7 +464,13 @@
 
     // ── ÉTAT ──
     let activeCategory = 'CASQUETTES & BONNETS';
-    const selected = {}; // { catKey: productId | null }
+    const selected = {
+      'CASQUETTES & BONNETS': 'casquette-3',
+      'T-SHIRT':              'tshirt-1',
+      'SHORT':                'short-1',
+      'CHAUSSETTES':          'chaussettes-2',
+      'CHAUSSURES':           'chaussures-3',
+    };
 
     // ── RENDER : nav catégories ──
     function renderCatNav() {
@@ -574,6 +614,27 @@
 
     function resetAll() {
       CATEGORIES.forEach(cat => { selected[cat] = null; });
+      render();
+    }
+
+    function cycleProduct(cat, dir) {
+      const prods = PRODUCTS[cat] || [];
+      if (!prods.length) return;
+      const currentId = selected[cat];
+      const idx = prods.findIndex(p => p.id === currentId);
+      const newIdx = (idx + dir + prods.length) % prods.length;
+      selected[cat] = prods[newIdx].id;
+      activeCategory = cat; // synchronise le panneau gauche sur la catégorie concernée
+      render();
+    }
+
+    function randomAll() {
+      CATEGORIES.forEach(cat => {
+        const prods = PRODUCTS[cat] || [];
+        if (prods.length) {
+          selected[cat] = prods[Math.floor(Math.random() * prods.length)].id;
+        }
+      });
       render();
     }
 

@@ -183,7 +183,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 0;
   padding: 16px 8px;
 }
 
@@ -277,6 +277,91 @@
 }
 .fl-chaussures.fl-item--visible {
   transform: rotate(4deg) scale(1);
+}
+
+/* ── FLÈCHES FLAT-LAY ── */
+
+/* Conteneur des paires de flèches : positionné dans .flatlay-board */
+.fl-arrow-pair {
+  position: absolute;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none; /* laisse passer les events vers le board */
+  z-index: 20;
+}
+
+/* Lignes casquette / t-shirt / short : même left et même right → alignement parfait */
+.fl-arrow-pair--full {
+  left: -48px;
+  right: -48px;
+}
+
+/* Chaussettes : container 0→215px, contenu visible ≈ 40→175px
+   ‹ à -25px (collé juste à gauche du contenu visible)
+   › à 420-260 = 160px (dans le gap, proche du bord droit du contenu visible) */
+.fl-arrow-pair--chaussettes {
+  left: 10px;
+  right: 260px;
+}
+
+/* Chaussures : container 130→460px, contenu visible ≈ 195→440px
+   ‹ à 200px (dans le gap, proche du bord gauche du contenu visible)
+   › à 420+25 = 445px (collé juste à droite du contenu visible) */
+.fl-arrow-pair--chaussures {
+  left: 200px;
+  right: 10px;
+}
+
+/* Bouton flèche */
+.fl-arrow {
+  pointer-events: auto;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 30px;
+  font-weight: 300;
+  color: #000;
+  line-height: 1;
+  padding: 12px 10px;
+  opacity: 0.45;
+  transition: opacity 0.15s ease;
+  font-family: sans-serif;
+}
+
+.fl-arrow:hover {
+  opacity: 1;
+}
+
+.config-center-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  margin-top: -75px; /* remonte dans la zone transparente du board pour coller au dernier item */
+  position: relative;
+  z-index: 1; /* passe au-dessus du flatlay-board qui couvrait les boutons */
+}
+
+.config-random {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.config-random span {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #696969;
+  letter-spacing: 1px;
 }
 
 .config-reset {
